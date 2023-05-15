@@ -75,7 +75,7 @@ const ExistingProduct = () => {
     <>
       <div
         className={
-          isModalOpenView === true
+          isModalOpenView === true || isModalOpenDelete === true
             ? "blur-sm brightness-90 transition-all ease-in-out duration-300 flex flex-wrap gap-2"
             : "flex flex-wrap gap-2 transition-all ease-in-out duration-300"
         }
@@ -88,7 +88,7 @@ const ExistingProduct = () => {
             <figure className="w-52 h-52 mx-auto rounded-xl  ">
               <img
                 className="w-52 h-52 rounded-xl overflow-hidden group-hover:rounded-lg group-hover:scale-105 transition-all duration-300 delay-75 ease-in-out"
-                src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+                src={item?.image}
                 alt={item.title}
               />
             </figure>
@@ -169,7 +169,7 @@ const ExistingProduct = () => {
             variants={overlayVariants}
             className={
               isModalOpenView === true &&
-              "fixed inset-0 bg-transparent    flex items-center justify-center"
+              "fixed inset-0 bg-transparent    flex flex-wrap items-center justify-center"
             }
           >
             <motion.div
@@ -206,11 +206,11 @@ const ExistingProduct = () => {
                 </div>
               </div>
               {isEdit === false ? (
-                <div className="w-full flex   px-2 py-1.5 ">
-                  <figure className="w-1/4">
+                <div className="w-full flex flex-wrap justify-center  px-2 py-1.5 ">
+                  <figure className="md:w-1/4 w-1/2">
                     <img
                       className="w-52 h-52 rounded-xl overflow-hidden hover:rounded-lg hover:scale-105 transition-all duration-300 delay-75 ease-in-out"
-                      src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+                      src={selectedItem?.image}
                     />
                   </figure>
                   <div className="flex flex-col items-center w-3/4">
@@ -252,13 +252,16 @@ const ExistingProduct = () => {
                   </div>
                 </div>
               ) : (
-                <div className=" flex w-full px-2 py-1.5">
-                  <div className="flex items-center justify-center w-1/4">
+                <div className=" flex flex-wrap justify-center w-full px-2 py-1.5">
+                  <div
+                    className="flex mt-2
+                   justify-center md:w-1/4 w-1/2"
+                  >
                     {selectedItemImage ? (
                       <div className="relative">
                         <img
                           className="w-52 h-52 rounded-lg"
-                          src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+                          src={selectedItemImage}
                         />
                         <button
                           onClick={() => setSelectedItemImage(null)}
@@ -422,7 +425,7 @@ const ExistingProduct = () => {
             }
           >
             <motion.div
-              className="max-w-lg w-1/3  h-1/3 overflow-y-auto bg-gray-800 border rounded-xl "
+              className="max-w-lg p-4 overflow-y-auto bg-gray-800 border rounded-xl "
               initial={{ scale: 0 }}
               animate={{ rotate: 360, scale: 1 }}
               exit={{ scale: 0 }}

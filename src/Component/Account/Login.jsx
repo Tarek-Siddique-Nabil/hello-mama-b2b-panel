@@ -25,7 +25,7 @@ const Login = () => {
         className="flex flex-col justify-center items-center h-screen"
       >
         <img
-          className="w-52 h-52 rounded-full border-2 border-gray-700 hover:cursor-pointer hover:rounded-xl hover:border-cyan-700 transition-all duration-500 ease-in-out "
+          className="w-52 h-52 rounded-lg border-2 border-gray-700 hover:cursor-pointer hover:rounded-xl hover:border-cyan-700 transition-all duration-500 ease-in-out "
           src="/hello_mama.jpeg"
         />
         <p className="text-xl mb-2">LogIn</p>
