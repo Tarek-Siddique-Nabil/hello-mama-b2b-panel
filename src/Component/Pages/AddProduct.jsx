@@ -86,7 +86,7 @@ const AddProduct = () => {
         </div>
 
         <div className=" flex flex-col">
-          <span>Title :-</span>
+          <span>পণ্যের নাম :-</span>
           <input
             required
             name="title"
@@ -95,7 +95,7 @@ const AddProduct = () => {
           />
         </div>
         <div className="flex flex-col">
-          <span>Price :-</span>
+          <span>খুচরা মূল্য :-</span>
           <input
             type="number"
             required
@@ -105,7 +105,7 @@ const AddProduct = () => {
           />
         </div>
         <div className="flex flex-col">
-          <span>Price B2b :-</span>
+          <span>পাইকারী মূল্য :-</span>
           <input
             type="number"
             required
