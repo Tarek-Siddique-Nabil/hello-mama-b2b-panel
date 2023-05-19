@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 
 const RequireAuth = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
-
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
