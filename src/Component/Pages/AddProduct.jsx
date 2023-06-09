@@ -7,7 +7,7 @@ import { AuthContext } from "../../Context Api/AuthContext";
 
 const AddProduct = () => {
   const { categories, b2bPost } = useContext(CustomHookContext);
-  const { user, logOut } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const [existingCategory, setExistingCategory] = useState([]);
 
@@ -72,19 +72,6 @@ const AddProduct = () => {
         onSubmit={onSubmit}
         className="flex flex-col items-center min-h-screen"
       >
-        <div className="flex gap-1 items-center">
-          <p className="capitalize px-2.5 py-2 rounded-xl border border-black bg-cyan-400 shadow-md hover:shadow-lg hover:shadow-gray-700 transition-shadow duration-150 ease-in-out">
-            {user?.email}
-          </p>
-          <button
-            className="px-2.5 py-2 bg-red-500 rounded-xl shadow-lg hover:shadow-gray-700 transition-shadow duration-150 ease-in-out shadow-orange-400"
-            onClick={async () => await logOut()}
-          >
-            {" "}
-            Log Out
-          </button>
-        </div>
-
         <div className=" flex flex-col">
           <span>পণ্যের নাম :-</span>
           <input
