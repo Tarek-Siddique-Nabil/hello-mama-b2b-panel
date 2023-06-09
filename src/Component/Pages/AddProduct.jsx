@@ -32,7 +32,7 @@ const AddProduct = () => {
           `${import.meta.env.VITE_APP_SECRET_SERVER_SIDE}/upload`,
           formData
         );
-        setBaseImage(res?.data?.imageUrl);
+        setBaseImage(res.data.imageUrl);
       } catch (error) {
         console.log(error);
       }

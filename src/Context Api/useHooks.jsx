@@ -23,9 +23,9 @@ export const ContextProvider = ({ children }) => {
 
   // --------------------------------------------------------b2b product get -----------------------------------
   useEffect(() => {
-    const url = `${import.meta.env.VITE_APP_SECRET_SERVER_SIDE}/product/${
-      user?.email || localStorage.getItem("User email")
-    }`;
+    const url = `${
+      import.meta.env.VITE_APP_SECRET_SERVER_SIDE
+    }/product/b2bProducts/${user?.email || localStorage.getItem("User email")}`;
     setLoading(false);
     const fetchData = async () => {
       try {
