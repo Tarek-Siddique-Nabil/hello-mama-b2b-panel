@@ -55,9 +55,7 @@ const B2b_Navigation = () => {
                 <button
                   className="bg-red-500 rounded-xl"
                   onClick={() => {
-                    logOut(),
-                      localStorage.removeItem("User role"),
-                      localStorage.removeItem("User email");
+                    logOut(), localStorage.removeItem("User email");
                   }}
                 >
                   Log Out

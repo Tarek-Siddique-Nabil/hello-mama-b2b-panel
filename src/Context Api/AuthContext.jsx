@@ -32,11 +32,6 @@ const FirebaseContextProvider = ({ children }) => {
       const json = response.data;
       if (json) {
         if (json?.role === "B2b") {
-          localStorage.setItem(
-            "User role",
-            `${import.meta.env.VITE_APP_SECRET_CODE_B2B}`
-          );
-
           signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
               // Signed in
@@ -54,17 +49,19 @@ const FirebaseContextProvider = ({ children }) => {
             })
             .catch((error) => {
               const errorCode = error.code;
-              console.log("Sign in error code:", errorCode);
-              const errorMessage = error.message;
-              console.log("Sign in error message:", errorMessage);
+              return toast.error(`${errorCode}`, {
+                position: "top-center",
+                duration: 1500,
+              });
             });
         } else {
-          toast.error("This is not b2b Account ", {
+          return toast.error("This is not b2b Account ", {
             position: "top-center",
             duration: 1500,
           });
         }
-      } else {
+      }
+      if (!json?.role) {
         toast.error("User Not Found in DataBase", {
           position: "top-center",
           duration: 1500,
